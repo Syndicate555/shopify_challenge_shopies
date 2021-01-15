@@ -7,14 +7,14 @@
 :root {
 	font-size: calc(16px + (24 - 16)*(100vw - 320px)/(1920 - 320));
 }
-body, button, input {
+button, input {
 	font: 1em Hind, sans-serif;
 	line-height: 1.5em;
 }
 body, input {
 	color: #171717;
 }
-body, .search-bar {
+ .search-bar {
 	display: flex;
 }
 body {
@@ -67,7 +67,7 @@ body {
 }
 .search-bar input:focus,
 .search-bar input:valid {
-	background: #fff;
+	background: #000;
 	border-radius: 0.375em 0 0 0.375em;
 	box-shadow: 0 0 0 0.1em #d9d9d9 inset;
 	transform: scale(1);
@@ -136,12 +136,7 @@ body {
 }
 
 @media screen and (prefers-color-scheme: dark) {
-	body, input {
-		color: #f1f1f1;
-	}
-	body {
-		background: #171717;
-	}
+	
 	.search-bar input {
 		box-shadow: 0 0 0 0.4em #f1f1f1 inset;
 	}

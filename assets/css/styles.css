@@ -35,7 +35,7 @@ float:left;
 }
 
 #searchText {
-  width: 50%;
+  width: 100%;
   border: 3px solid #d3d3d33a;
   border-right: none;
   padding: 20px;
