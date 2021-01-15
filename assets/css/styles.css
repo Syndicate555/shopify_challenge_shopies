@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 #movies img, #movie img{
-    width: 60%;
+    width: 50%;
 }
 h3, h4, p, a, h5, h6{
     color:white
