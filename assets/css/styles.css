@@ -1,5 +1,5 @@
 #movies img, #movie img{
-    width: 100%;
+    width: 90%;
 }
 
 #movies .col-md-3 .well{
@@ -9,3 +9,15 @@
 #movies .col-md-3 img{
     height: 240px
 }
+
+.buttons {
+float:left;
+  width:100%;
+  text-align:center;
+}
+#button{
+    display: inline-block;
+}
+
+
+    

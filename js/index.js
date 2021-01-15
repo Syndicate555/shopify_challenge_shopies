@@ -14,11 +14,16 @@ function fetchMovies(searchMovie){
         let output = ''
         $.each(movies, (index, movie)=>{
             output += `
-            <div class = "col-md-3">
+            <div class = "col-md-4">
                 <div class = "well text-center">
                     <img src = "${movie.Poster}">
-                    <h5>${movie.Title}
-                    <a onClick = "movieSelected('${movie.imdbID}')" class = "btn btn-primary" href = "#">Movie Details</a>
+                    <br></br>
+                    <h5>${movie.Title}</h5>
+                    <div class = buttons>
+                        <a onClick = "movieSelected('${movie.imdbID}')" class = "btn btn-primary btn-sm" id = "button" href = "#">Movie Details</a>
+                        <a  class = "btn btn-primary btn-sm" id = "button" href = "#">Nominate movie</a>
+                    </div>
+                    
                 </div>
             </div>
             `
