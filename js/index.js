@@ -18,12 +18,13 @@ function fetchMovies(searchMovie){
                 <div class = "well text-center">
                     <img src = "${movie.Poster}">
                     <h5>${movie.Title}
-                    <a onClick = "movieSelected(${movie.imdbID})"/>
+                    <a onClick = "movieSelected('${movie.imdbID}')" class = "btn btn-primary" href = "#">Movie Details</a>
                 </div>
             </div>
             `
 
         })
+        $('#movies').html(output)
 
         console.log(movies)
 
