@@ -46,6 +46,48 @@ function fetchMovies(searchMovie){
     })
 }
 
+function movieSelected(id){
+    sessionStorage.setItem('movieId', id); // Saving the movie ID to the session
+    window.location = movie.html;
+    return false;
+}
+
 function getMovie(){
-    
+    let movieId = sessionStorage.getItem('movieId');
+    axios.get(`http://www.omdbapi.com/?i=${movieId}&apikey=fb26a757`)
+    .then((response) => {
+        let movies = response.data.Search
+        let output = ''
+        $.each(movies, (index, movie)=>{
+            output += `
+            <div class = "col-md-4">
+                <div class = "well text-center">
+                    <img src = "${movie.Poster}">
+                    <br></br>
+                    <h5>${movie.Title}</h5>
+                    <div class = buttons>
+                        <a onClick = "movieSelected('${movie.imdbID}')" class = "btn btn-primary btn-sm" id = "button" href = "#">Movie Details</a>
+                        <a  class = "btn btn-primary btn-sm" id = "button" href = "#">Nominate movie</a>
+                        <br></br>
+                    </div>
+                    
+                </div>
+            </div>
+            `
+        })
+        if (typeof movies == 'undefined'){
+            let result = `<h6 class = "result"> No Movies Found. Try another movie </h6>`
+            $('#movies').html(result)
+            return
+        }
+        $('#movies').html(output)
+        console.log(movies)
+
+
+
+    })
+    .catch((error) => {
+        console.error(error)
+
+    })
 }
