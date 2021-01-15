@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 #movies img, #movie img{
     width: 60%;
 }
@@ -26,5 +28,22 @@ float:left;
     }
 
 }
+
+#searchText {
+
+  width: 90%;
+  border: 3px solid #0058cc;
+  border-right: none;
+  padding: 5px;
+  height: 40px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+
+}
+#searchTerm:focus{
+    color: #2a75e6b7;
+  }
+  
 
     
