@@ -11,4 +11,20 @@ const productsDOM = document.querySelector('.products-center');
 
 
 // Nominations
-let cart = []
+let cart = [];
+
+class Products{
+
+}
+
+class UI {
+
+}
+
+class Storage{
+
+}
+
+document.addEventListener("DOMContentLoaded", ()=> {
+    const ui = new UI()
+})
