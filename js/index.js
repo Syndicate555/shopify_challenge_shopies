@@ -12,7 +12,7 @@ function fetchMovies(searchMovie){
     .then((response) => {
         let movies = response.data.Search
         let output = ''
-        $each(movies, (index, movie)=>{
+        $.each(movies, (index, movie)=>{
             output += `
             <div class = "col-md-3">
                 <div class = "well text-center">
