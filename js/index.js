@@ -28,11 +28,16 @@ function fetchMovies(searchMovie){
                 </div>
             </div>
             `
-
         })
-        $('#movies').html(output)
-
+        if (typeof movies == 'undefined'){
+            let result = `<h3> No Movies Found ......</h3>`
+            $('#movies').html(result)
+        }
+        else{
+            $('#movies').html(output)
+        }
         console.log(movies)
+
 
 
     })
