@@ -8,6 +8,42 @@
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-    <nav class="navbar navbar-default"></nav>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="navbar-brand">UX Developer Intern & Web Developer Intern Challenge - Summer 2021
+                </a>
+                <br>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h3 class="text-center">UX Developer Intern & Web Developer Intern Challenge - Summer 2021</h3>
+            <span class="type" id="type" style="font-family:Verdana, Geneva, Tahoma, sans-serif"></span>
+            <form action="" id="searchForm">
+                <input type="text" class="form-control" id="searchText" placeholder="Search Any Movie" required>
+            </form>
+        </div>
+    </div>
+    <script src = "typed.js"></script>
+<script>
+    var typed = new Typed('.type', {
+        strings: [
+            'The Shoppies!^600',
+            'Movie awards for Entrepreneurs....^700',
+            
+        ],
+        typeSpeed: 40,
+        backSpeed: 40,
+        startDelay: 700,
+        showCursor: true,
+        cursorChar: '|',
+        autoInsertCss: true,
+        loop: true,
+        loopCount: Infinity,
+    });
+</script>
 </body>
 </html>
