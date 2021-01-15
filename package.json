@@ -1,0 +1,19 @@
+{
+  "name": "shopify_challenge_shopies",
+  "version": "1.0.0",
+  "description": "shopify frontend challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Syndicate555/shopify_challenge_shopies.git"
+  },
+  "author": "Saffat Aziz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Syndicate555/shopify_challenge_shopies/issues"
+  },
+  "homepage": "https://github.com/Syndicate555/shopify_challenge_shopies#readme"
+}
