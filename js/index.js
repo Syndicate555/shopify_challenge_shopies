@@ -10,7 +10,22 @@ function fetchMovies(searchMovie){
     // console.log(searchMovie)
     axios.get(`http://www.omdbapi.com/?s=${searchMovie}&apikey=fb26a757`)
     .then((response) => {
-        console.log(response.data)
+        let movies = response.data.Search
+        let output = ''
+        $each(movies, (index, movie)=>{
+            output += `
+            <div class = "col-md-3">
+                <div class = "well text-center">
+                    <img src = "${movie.Poster}">
+                    <h5>${movie.Title}
+                    <a onClick = "movieSelected(${movie.imdbID})"/>
+                </div>
+            </div>
+            `
+
+        })
+
+        console.log(movies)
 
 
     })
