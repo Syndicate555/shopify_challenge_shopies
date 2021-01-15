@@ -1,12 +1,12 @@
 #movies img, #movie img{
-    width: 90%;
+    width: 60%;
 }
 
-#movies .col-md-3 .well{
+#movies .col-md-4 .well{
     height:400px
 }
 
-#movies .col-md-3 img{
+#movies .col-md-4 img{
     height: 240px
 }
 

@@ -22,6 +22,7 @@ function fetchMovies(searchMovie){
                     <div class = buttons>
                         <a onClick = "movieSelected('${movie.imdbID}')" class = "btn btn-primary btn-sm" id = "button" href = "#">Movie Details</a>
                         <a  class = "btn btn-primary btn-sm" id = "button" href = "#">Nominate movie</a>
+                        <br></br>
                     </div>
                     
                 </div>
