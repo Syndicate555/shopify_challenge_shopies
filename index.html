@@ -23,12 +23,15 @@
             <h3 class="text-center">UX Developer Challenge </h3>
             <h4 class="type" id="type" style="font-family:Verdana, Geneva, Tahoma, sans-serif; text-align: center;"></h4>
             <br>
+        </div>
     </div>
     <div class="jumpotron">
         <form action="" id="searchForm">
             <input type="text" class="form-control" id="searchText" placeholder="Search Any Movie" required>
         </form>
     </div>
+    <div class="container">
+        <div id="movies" class="row"></div>
     </div>
     <script src = "typed.js"></script>
 <script>
@@ -39,11 +42,11 @@
             'for Entrepreneurs!^700',
         ],
         typeSpeed: 40,
-        backSpeed: 40,
+        backSpeed: 30,
         startDelay: 700,
         showCursor: false,
-        cursorChar: '|',
-        autoInsertCss: true,
+        cursorChar: '',
+        autoInsertCss: false,
         loop: true,
         loopCount: Infinity,
     });
