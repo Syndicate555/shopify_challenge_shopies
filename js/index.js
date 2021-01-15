@@ -1,6 +1,6 @@
 $(document).ready(()=>{
     $('#searchForm').on('submit', (s) =>{
-        console.log($('#searchText').val());
+        let searchMovie = ($('#searchText').val());
         s.preventDefault()
     })
 })
