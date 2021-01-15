@@ -31,11 +31,10 @@ function fetchMovies(searchMovie){
         })
         if (typeof movies == 'undefined'){
             let result = `<h6 class = "result"> No Movies Found. Try another movie </h6>`
-            $('.container-2').html(result)
+            $('#movies').html(result)
+            return
         }
-        else{
-            $('#movies').html(output)
-        }
+        $('#movies').html(output)
         console.log(movies)
 
 
