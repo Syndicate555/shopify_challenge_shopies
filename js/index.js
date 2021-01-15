@@ -44,7 +44,8 @@ function fetchMovies(searchMovie){
         console.error(error)
 
     })
+}
 
+function getMovie(){
     
-
 }
