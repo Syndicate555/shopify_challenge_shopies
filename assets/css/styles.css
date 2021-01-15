@@ -3,6 +3,9 @@
 #movies img, #movie img{
     width: 60%;
 }
+h3, h4, p, a{
+    color:white
+}
 
 .search {
     width: 100%;
@@ -34,7 +37,7 @@ float:left;
 
 }
 
-#searchText {
+/* #searchText {
   width: 100%;
   border: 3px solid #d3d3d33a;
   border-right: none;
@@ -45,7 +48,9 @@ float:left;
   color: #9DBFAF;
   align-self: center;
 
-}
+} */
+
+
 #searchTerm:focus{
     color: #2a75e6b7;
   }

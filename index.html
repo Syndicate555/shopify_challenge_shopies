@@ -6,9 +6,11 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Shoppies</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" /> -->
     <link rel="stylesheet" href="./assets/css/styles.css">
     <link rel="stylesheet" href="./assets/css/search.css">
+
 </head>
 <body>
     <nav class="navbar navbar-default">
@@ -24,20 +26,16 @@
     <div class="container">
         <div>
             <h3 class="text-center">UX Developer Challenge </h3>
-            <h4 class="type" id="type" style="font-family:Verdana, Geneva, Tahoma, sans-serif; text-align: center;"></h4>
+            <!-- <h4 class="type" id="type" style="font-family:Verdana, Geneva, Tahoma, sans-serif; text-align: center;"></h4> -->
             <br>
         </div>
     </div>
     <div class="jumpotron">
-        <div class="wrap">
-            
-            <form action="" id="searchForm">
-                <div class="search">
-                    <input type="text" class="form-control" id="searchText" placeholder="Search your favourite Movie..." required>
-                    <button type="submit" class="searchButton">
-                    <i class="fa fa-search"></i>
-                </button>
-                </div>
+        <div>
+            <br>
+            <form action="" id = "searchForm">
+                <input type="search" id="searchText" placeholder="Search your favourite Movie..." required>
+                <i class="fa fa-search"></i>
             </form>
         </div>
     </div>
@@ -62,9 +60,9 @@
             'Movie awards^300',
             'for Entrepreneurs!^700',
         ],
-        typeSpeed: 40,
+        typeSpeed: 30,
         backSpeed: 30,
-        startDelay: 700,
+        startDelay: 800,
         showCursor: false,
         cursorChar: '',
         autoInsertCss: false,
