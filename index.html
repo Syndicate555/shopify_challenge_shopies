@@ -6,8 +6,9 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Shoppies</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" /> -->
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/search.css">
 </head>
 <body>
     <nav class="navbar navbar-default">
@@ -28,12 +29,16 @@
         </div>
     </div>
     <div class="jumpotron">
-        <form action="" id="searchForm">
-            <input type="text" class="form-control" id="searchText" placeholder="Search your favourite Movie..." required>
-            <button type="submit" class="searchButton">
-                <i class="fa fa-search"></i>
-             </button>
-        </form>
+        <div class="wrap">
+            <form action="" id="searchForm">
+                <div class="search">
+                    <input type="text" class="form-control" id="searchText" placeholder="Search your favourite Movie..." required>
+                    <button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
+                </div>
+            </form>
+        </div>
     </div>
     <div class="container">
         <br>

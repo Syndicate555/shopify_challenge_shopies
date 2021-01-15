@@ -4,6 +4,11 @@
     width: 60%;
 }
 
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
 
 .buttons {
 float:left;
@@ -30,20 +35,21 @@ float:left;
 }
 
 #searchText {
-
-  width: 90%;
-  border: 3px solid #0058cc;
+  width: 50%;
+  border: 3px solid #d3d3d33a;
   border-right: none;
-  padding: 5px;
+  padding: 20px;
   height: 40px;
   border-radius: 5px 0 0 5px;
   outline: none;
   color: #9DBFAF;
+  align-self: center;
 
 }
 #searchTerm:focus{
     color: #2a75e6b7;
   }
-  
+
+
 
     
