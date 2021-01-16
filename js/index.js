@@ -1,3 +1,15 @@
+// variables
+
+const cartBtn = document.querySelector('.cart-btn');
+const closeCartBtn = document.querySelector('.close-cart');
+const clearCartBtn = document.querySelector('.clear-cart');
+const cartDOM = document.querySelector('.cart');
+const cartOverlay = document.querySelector('.cart-overlay');
+const cartItems = document.querySelector('.cart-items');
+const cartContent = document.querySelector('.cart-content');
+const productsDOM = document.querySelector('.products-center');
+
+const cart = [];
 $(document).ready(()=>{
     $('#searchForm').on('submit', (s) =>{
         let searchMovie = ($('#searchText').val());
@@ -12,6 +24,12 @@ function fetchMovies(searchMovie){
     .then((response) => {
         let movies = response.data.Search
         let output = ''
+        // let list = response.data.Search
+        // list = movies.map(item => {
+        //     const {title} = item.Title
+        //     const {image} = item.Poster
+        //     const {year} = item.Year
+        // })
         $.each(movies, (index, movie)=>{
             output += `
             <div class = "col-md-4">
@@ -21,7 +39,7 @@ function fetchMovies(searchMovie){
                     <h5>${movie.Title}</h5>
                     <div class = buttons>
                         <a onClick = "movieSelected('${movie.imdbID}')" class = "btn btn-primary btn-sm" id = "button" href = "#">Movie Details</a>
-                        <a  class = "btn btn-success btn-sm" id = "button" href = "#">Nominate movie</a>
+                        <a onClick = "saveMovie('${movie.Title}')" class = "btn btn-success btn-sm" id = "button" href = "#">Nominate movie</a>
                         <br></br>
                     </div>
                     
@@ -44,6 +62,18 @@ function fetchMovies(searchMovie){
         console.error(error)
 
     })
+}
+function saveMovie(id){
+    localStorage.setItem("id", JSON.stringify(id))
+    if (cart.length == 5){
+        alert("Nomination limit reached")
+    }
+    else{
+        cart.push(id)
+        alert("Movie Nominated")
+    }
+  
+    console.log(cart)
 }
 
 function movieSelected(id){
