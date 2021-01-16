@@ -19,17 +19,30 @@ $(document).ready(()=>{
     })
 })
 
+function ready(){
+    var addToCartItems = document.getElementsByClassName('btn-success');
+    // console.log(addToCartItems)
+    for ( var i = 0; i<addToCartItems.length;i++){
+        var button = addToCartItems[i]
+        button.addEventListener('click', nominateClicked)
+    }
+
+    
+
+}
+
 
 
 
 function removeItem(){
-    const removeCartItems = document.getElementsByClassName('btn-danger');
+    var removeCartItems = document.getElementsByClassName('btn-danger');
     // // removing nominations from the list
     for( var i =0; i<removeCartItems.length; i++){
         var button = removeCartItems[i]
         button.addEventListener('click', (event) =>{
             var buttonClicked = event.target
             buttonClicked.parentElement.remove()
+            button.disabled = true;
             cart.pop()
             console.log(cart)
         })
@@ -94,15 +107,7 @@ function fetchMovies(searchMovie){
     })
 }
 
-function ready(){
-    const addToCartItems = document.getElementsByClassName('btn-success');
-    console.log(addToCartItems)
-    for ( var i = 0; i<addToCartItems.length;i++){
-        var button = addToCartItems[i]
-        button.addEventListener('click', nominateClicked)
-    }
 
-}
 
 function nominateClicked(event){
     var buttonClicked = event.target
@@ -179,20 +184,8 @@ function nominateMovie(title){
 
 }
 function saveMovie(title, year){
+    button.disabled = true;
 
-    // let items = []
-    // items.push(title)
-    // if (cart.length == 5 ){
-    //     alert("Nomination limit reached")
-    // }
-    // else{
-    //     cart.push(items)
-    //     alert("Movie Nominated")
-    //     sessionStorage.setItem("nominations", JSON.stringify(cart))
-
-    // }
-  
-    // console.log(cart)
 }
 
 function movieSelected(id){
