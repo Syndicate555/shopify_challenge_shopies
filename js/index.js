@@ -1,5 +1,4 @@
 // variables
-
 const cartBtn = document.querySelector('.cart-btn');
 const closeCartBtn = document.querySelector('.close-cart');
 const clearCartBtn = document.querySelector('.clear-cart');
@@ -39,7 +38,7 @@ function fetchMovies(searchMovie){
                     <h5>${movie.Title}</h5>
                     <div class = buttons>
                         <a onClick = "movieSelected('${movie.imdbID}')" class = "btn btn-primary btn-sm" id = "button" href = "#">Movie Details</a>
-                        <a onClick = "saveMovie('${movie.Title}')" class = "btn btn-success btn-sm" id = "button" href = "#">Nominate movie</a>
+                        <a onClick = "saveMovie('${movie.Title}, ${movie.Year}')" class = "btn btn-success btn-sm" id = "button" href = "#">Nominate movie</a>
                         <br></br>
                     </div>
                     
@@ -53,7 +52,6 @@ function fetchMovies(searchMovie){
             return
         }
         $('#movies').html(output)
-        console.log(movies)
 
 
 
@@ -63,13 +61,15 @@ function fetchMovies(searchMovie){
 
     })
 }
-function saveMovie(id){
-    localStorage.setItem("id", JSON.stringify(id))
+function saveMovie(title, year){
+    let items = []
+    items.push(title)
+    localStorage.setItem("title", JSON.stringify(title))
     if (cart.length == 5){
         alert("Nomination limit reached")
     }
     else{
-        cart.push(id)
+        cart.push(items)
         alert("Movie Nominated")
     }
   
