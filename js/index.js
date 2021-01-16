@@ -20,7 +20,7 @@ $(document).ready(()=>{
 })
 
 function ready(){
-    alert("After nominating a movie, please please the remove button twice to remove it from the nomination list")
+    alert("After nominating a movie, please the remove button twice to remove it from the nomination list")
     var addToCartItems = document.getElementsByClassName('btn-success');
     // console.log(addToCartItems)
     for ( var i = 0; i<addToCartItems.length;i++){
