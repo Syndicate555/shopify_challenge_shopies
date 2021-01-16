@@ -20,7 +20,7 @@ $(document).ready(()=>{
 })
 
 function ready(){
-    alert("After nominating a movie, please press the remove button twice to remove it from the nomination list")
+    alert("If you visit the movie details page, the cart will empty itself")
     var addToCartItems = document.getElementsByClassName('btn-success');
     // console.log(addToCartItems)
     for ( var i = 0; i<addToCartItems.length;i++){
@@ -128,7 +128,7 @@ function nominateMovie(title){
     }
     if (cart.length == 0 ){
         cart.push(title)
-        alert("Movie Nominated")
+        alert("Movie Nominated, please press remove button twice to remove it from the nominations list")
         var cartRowContents = `
         <div class="cart-item">
             <h4 class = "movie-title">${title}</h4>
@@ -151,7 +151,7 @@ function nominateMovie(title){
     }
     if (cart.length > 0 && !cart.includes(title)){
         cart.push(title)
-        alert("Movie Nominated")
+        alert("Movie Nominated, please press remove button twice to remove it from the nominations list")
         var cartRowContents = `
         <div class="cart-item">
             <h4 class = "movie-title">${title}</h4>
