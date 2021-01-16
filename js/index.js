@@ -20,19 +20,20 @@ $(document).ready(()=>{
         s.preventDefault()
     })
 })
-// removing nominations from the list
-for( var i =0; i<removeCartItems.length; i++){
-    var button = removeCartItems[i]
-    button.addEventListener('click', (event) =>{
-        var buttonClicked = event.target
-        buttonClicked.parentElement.remove()
-    })
-}
+// // removing nominations from the list
+// for( var i =0; i<removeCartItems.length; i++){
+//     var button = removeCartItems[i]
+//     button.addEventListener('click', (event) =>{
+//         var buttonClicked = event.target
+//         buttonClicked.parentElement.remove()
+//     })
+// }
 
 
 
 function removeItem(){
-    
+
+
 }
 function showCart() {
     cartOverlay.classList.add("transparentBcg");
@@ -104,7 +105,6 @@ function ready(){
             var buttonClicked = event.target
             var movie = buttonClicked.parentElement.parentElement
             var title = movie.getElementsByClassName("movie-title")[0].innerText
-            console.log(title)
             nominateMovie(title)
         })
     }
@@ -113,27 +113,69 @@ function ready(){
 
 function nominateMovie(title){
     var cartRow = document.createElement('div')
-   
     var cartItems = document.getElementsByClassName('cart-content')[0]
-    var cartRowContents = `
+    const removeCartItems = document.getElementsByClassName('btn-danger');
+
+    if (cart.length >4){
+        alert("Already 5 movies nominated!")
+        return
+    }
+    if (cart.length == 0 ){
+        cart.push(title)
+        alert("Movie Nominated")
+        var cartRowContents = `
         <div class="cart-item">
-              <div>
-                <h4>${title}</h4>
-                <span class="btn btn-danger remove" >remove</span>
-              </div>
+            <h4 class = "movie-title">${title}</h4>
+            <span class="btn btn-danger remove" >remove</span>
         </div>
     `
-    cartRow.innerHTML = cartRowContents
-    cartItems.append(cartRow)
-     // removing nominations from the list
-     const removeCartItems = document.getElementsByClassName('btn-danger');
-     for( var i =0; i<removeCartItems.length; i++){
-         var button = removeCartItems[i]
-         button.addEventListener('click', (event) =>{
-             var buttonClicked = event.target
-             buttonClicked.parentElement.remove()
-         })
-     }
+        cartRow.innerHTML = cartRowContents
+        cartItems.append(cartRow)
+        console.log(cart)
+        // removing nominations from the list
+        for( var i =0; i<removeCartItems.length; i++){
+            var button = removeCartItems[i]
+            button.addEventListener('click', (event) =>{
+                var buttonClicked = event.target
+                buttonClicked.parentElement.remove()
+                console.log(cart)
+            })
+        }
+        return
+    }
+    if (cart.length > 0 && !cart.includes(title)){
+        cart.push(title)
+        alert("Movie Nominated")
+        var cartRowContents = `
+        <div class="cart-item">
+            <h4 class = "movie-title">${title}</h4>
+            <span class="btn btn-danger remove" >remove</span>
+        </div>
+    `
+        cartRow.innerHTML = cartRowContents
+        cartItems.append(cartRow)
+        console.log(cart)
+
+        // removing nominations from the list
+        for( var i =0; i<removeCartItems.length; i++){
+            var button = removeCartItems[i]
+            button.addEventListener('click', (event) =>{
+                var buttonClicked = event.target
+                buttonClicked.parentElement.remove()
+                cart.pop()
+                console.log(cart)
+            })
+        }
+        return
+    }
+    
+    if (cart.includes(title)){
+        alert("Movie already Nominated!")
+        return
+    }
+  
+    
+     
 
 }
 function saveMovie(title, year){
