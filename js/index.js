@@ -8,9 +8,7 @@ const cartItems = document.querySelector('.cart-items');
 const cartContent = document.querySelector('.cart-content');
 const productsDOM = document.querySelector('.products-center');
 const cart = [];
-const removeCartItems = document.getElementsByClassName('btn-danger');
 // const addToCartItems = document.getElementsByClassName('btn-success');
-console.log(removeCartItems)
 
 
 $(document).ready(()=>{
@@ -20,20 +18,22 @@ $(document).ready(()=>{
         s.preventDefault()
     })
 })
-// // removing nominations from the list
-// for( var i =0; i<removeCartItems.length; i++){
-//     var button = removeCartItems[i]
-//     button.addEventListener('click', (event) =>{
-//         var buttonClicked = event.target
-//         buttonClicked.parentElement.remove()
-//     })
-// }
+
 
 
 
 function removeItem(){
-
-
+    const removeCartItems = document.getElementsByClassName('btn-danger');
+    // // removing nominations from the list
+    for( var i =0; i<removeCartItems.length; i++){
+        var button = removeCartItems[i]
+        button.addEventListener('click', (event) =>{
+            var buttonClicked = event.target
+            buttonClicked.parentElement.remove()
+            cart.pop()
+            console.log(cart)
+        })
+    }
 }
 function showCart() {
     cartOverlay.classList.add("transparentBcg");
@@ -44,9 +44,7 @@ function hideCart() {
     cartDOM.classList.remove("showCart");
   }
 
-class Movies{
 
-}
 
 function fetchMovies(searchMovie){
     // console.log(searchMovie)
@@ -101,14 +99,16 @@ function ready(){
     console.log(addToCartItems)
     for ( var i = 0; i<addToCartItems.length;i++){
         var button = addToCartItems[i]
-        button.addEventListener('click', (event) =>{
-            var buttonClicked = event.target
-            var movie = buttonClicked.parentElement.parentElement
-            var title = movie.getElementsByClassName("movie-title")[0].innerText
-            nominateMovie(title)
-        })
+        button.addEventListener('click', nominateClicked)
     }
 
+}
+
+function nominateClicked(event){
+    var buttonClicked = event.target
+    var movie = buttonClicked.parentElement.parentElement
+    var title = movie.getElementsByClassName("movie-title")[0].innerText
+    nominateMovie(title)
 }
 
 function nominateMovie(title){
@@ -126,21 +126,21 @@ function nominateMovie(title){
         var cartRowContents = `
         <div class="cart-item">
             <h4 class = "movie-title">${title}</h4>
-            <span class="btn btn-danger remove" >remove</span>
+            <span class="btn btn-danger remove" onClick = "removeItem()" >remove</span>
         </div>
     `
         cartRow.innerHTML = cartRowContents
         cartItems.append(cartRow)
         console.log(cart)
-        // removing nominations from the list
-        for( var i =0; i<removeCartItems.length; i++){
-            var button = removeCartItems[i]
-            button.addEventListener('click', (event) =>{
-                var buttonClicked = event.target
-                buttonClicked.parentElement.remove()
-                console.log(cart)
-            })
-        }
+        // // removing nominations from the list
+        // for( var i =0; i<removeCartItems.length; i++){
+        //     var button = removeCartItems[i]
+        //     button.addEventListener('click', (event) =>{
+        //         var buttonClicked = event.target
+        //         buttonClicked.parentElement.remove()
+        //         console.log(cart)
+        //     })
+        // }
         return
     }
     if (cart.length > 0 && !cart.includes(title)){
@@ -149,23 +149,23 @@ function nominateMovie(title){
         var cartRowContents = `
         <div class="cart-item">
             <h4 class = "movie-title">${title}</h4>
-            <span class="btn btn-danger remove" >remove</span>
+            <span class="btn btn-danger remove" onClick = "removeItem()" >remove</span>
         </div>
     `
         cartRow.innerHTML = cartRowContents
         cartItems.append(cartRow)
         console.log(cart)
 
-        // removing nominations from the list
-        for( var i =0; i<removeCartItems.length; i++){
-            var button = removeCartItems[i]
-            button.addEventListener('click', (event) =>{
-                var buttonClicked = event.target
-                buttonClicked.parentElement.remove()
-                cart.pop()
-                console.log(cart)
-            })
-        }
+        // // removing nominations from the list
+        // for( var i =0; i<removeCartItems.length; i++){
+        //     var button = removeCartItems[i]
+        //     button.addEventListener('click', (event) =>{
+        //         var buttonClicked = event.target
+        //         buttonClicked.parentElement.remove()
+        //         cart.pop()
+        //         console.log(cart)
+        //     })
+        // }
         return
     }
     
