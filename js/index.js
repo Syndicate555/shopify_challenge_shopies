@@ -7,8 +7,8 @@ const cartOverlay = document.querySelector('.cart-overlay');
 const cartItems = document.querySelector('.cart-items');
 const cartContent = document.querySelector('.cart-content');
 const productsDOM = document.querySelector('.products-center');
-
 const cart = [];
+
 $(document).ready(()=>{
     $('#searchForm').on('submit', (s) =>{
         let searchMovie = ($('#searchText').val());
@@ -16,6 +16,19 @@ $(document).ready(()=>{
         s.preventDefault()
     })
 })
+
+function showCart() {
+    cartOverlay.classList.add("transparentBcg");
+    cartDOM.classList.add("showCart");
+}
+function hideCart() {
+    cartOverlay.classList.remove("transparentBcg");
+    cartDOM.classList.remove("showCart");
+  }
+
+class Movies{
+
+}
 
 function fetchMovies(searchMovie){
     // console.log(searchMovie)
@@ -52,6 +65,7 @@ function fetchMovies(searchMovie){
             return
         }
         $('#movies').html(output)
+        console.log(cart)
 
 
 
@@ -62,15 +76,17 @@ function fetchMovies(searchMovie){
     })
 }
 function saveMovie(title, year){
+
     let items = []
     items.push(title)
-    localStorage.setItem("title", JSON.stringify(title))
-    if (cart.length == 5){
+    if (cart.length == 5 ){
         alert("Nomination limit reached")
     }
     else{
         cart.push(items)
         alert("Movie Nominated")
+        sessionStorage.setItem("nominations", JSON.stringify(cart))
+
     }
   
     console.log(cart)
@@ -128,3 +144,17 @@ function getMovie(){
 
     })
 }
+class UI {
+    getBagButtons(){
+        const buttons = [...document.querySelectorAll(".bag-btn")]
+    }
+}
+
+class Storage{
+    
+}
+
+document.addEventListtener("DOMContentLoaded", () => {
+    const ui = new UI();
+
+})

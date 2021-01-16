@@ -1,3 +1,6 @@
+:root {
+    --mainTransition: all 0.3s linear;
+}
 .navbar {
     position: relative;
     top: 0;
@@ -29,7 +32,6 @@
     position: absolute;
     top: -8px;
     right: -8px;
-    background: var(--primaryColor);
     padding: 0 5px;
     border-radius: 30%;
     color: var(--mainWhite);
@@ -44,7 +46,6 @@
     height: 100%;
     background: transparent;
     transition: var(--mainTransition);
-    background: rgb(240, 157, 81, 0.5);
     z-index: 2;
     visibility: hidden;
   }
@@ -106,18 +107,8 @@
     margin: 0.5rem 0;
     letter-spacing: var(--mainSpacing);
   }
-  .item-amount {
-    text-align: center;
-  }
-  .remove-item {
-    color: grey;
-    cursor: pointer;
-  }
-  .fa-chevron-up,
-  .fa-chevron-down {
-    color: var(--primaryColor);
-    cursor: pointer;
-  }
+ 
+
   /*---------- End of Cart Item -------------------- */
   .cart-footer {
     margin-top: 2rem;
@@ -132,10 +123,8 @@
   .banner-btn {
     padding: 1rem 3rem;
     text-transform: uppercase;
-    letter-spacing: var(--mainSpacing);
     font-size: 1rem;
-    background: var(--primaryColor);
-    color: var(--mainBlack);
+    color: black;
     border: 1px solid black;
     transition: var(--mainTransition);
     cursor: pointer;
