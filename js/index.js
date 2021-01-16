@@ -9,14 +9,9 @@ const cartContent = document.querySelector('.cart-content');
 const productsDOM = document.querySelector('.products-center');
 const cart = [];
 const removeCartItems = document.getElementsByClassName('btn-danger');
+// const addToCartItems = document.getElementsByClassName('btn-success');
 console.log(removeCartItems)
-for( var i =0; i<removeCartItems.length; i++){
-    var button = removeCartItems[i]
-    button.addEventListener('click', (event) =>{
-        var buttonClicked = event.target
-        buttonClicked.parentElement.remove()
-    })
-}
+
 
 $(document).ready(()=>{
     $('#searchForm').on('submit', (s) =>{
@@ -25,6 +20,17 @@ $(document).ready(()=>{
         s.preventDefault()
     })
 })
+// removing nominations from the list
+for( var i =0; i<removeCartItems.length; i++){
+    var button = removeCartItems[i]
+    button.addEventListener('click', (event) =>{
+        var buttonClicked = event.target
+        buttonClicked.parentElement.remove()
+    })
+}
+
+
+
 function removeItem(){
     
 }
@@ -59,10 +65,10 @@ function fetchMovies(searchMovie){
                 <div class = "well text-center">
                     <img src = "${movie.Poster}">
                     <br></br>
-                    <h5>${movie.Title}</h5>
+                    <h5 class = "movie-title">${movie.Title}</h5>
                     <div class = buttons>
                         <a onClick = "movieSelected('${movie.imdbID}')" class = "btn btn-primary btn-sm" id = "button" href = "#">Movie Details</a>
-                        <a onClick = "saveMovie('${movie.Title}, ${movie.Year}')" class = "btn btn-success btn-sm" id = "button" href = "#">Nominate movie</a>
+                        <a onClick = "saveMovie('${movie.Title}, ${movie.Year}')" class = "btn btn-success btn-sm" href = "#">Nominate movie</a>
                         <br></br>
                     </div>
                     
@@ -76,7 +82,8 @@ function fetchMovies(searchMovie){
             return
         }
         $('#movies').html(output)
-        console.log(cart)
+        ready()
+        // console.log(cart)
 
 
 
@@ -86,21 +93,63 @@ function fetchMovies(searchMovie){
 
     })
 }
+
+function ready(){
+    const addToCartItems = document.getElementsByClassName('btn-success');
+    console.log(addToCartItems)
+    for ( var i = 0; i<addToCartItems.length;i++){
+        var button = addToCartItems[i]
+        button.addEventListener('click', (event) =>{
+            var buttonClicked = event.target
+            var movie = buttonClicked.parentElement.parentElement
+            var title = movie.getElementsByClassName("movie-title")[0].innerText
+            console.log(title)
+            nominateMovie(title)
+        })
+    }
+
+}
+
+function nominateMovie(title){
+    var cartRow = document.createElement('div')
+   
+    var cartItems = document.getElementsByClassName('cart-content')[0]
+    var cartRowContents = `
+        <div class="cart-item">
+              <div>
+                <h4>${title}</h4>
+                <span class="btn btn-danger remove" >remove</span>
+              </div>
+        </div>
+    `
+    cartRow.innerHTML = cartRowContents
+    cartItems.append(cartRow)
+     // removing nominations from the list
+     const removeCartItems = document.getElementsByClassName('btn-danger');
+     for( var i =0; i<removeCartItems.length; i++){
+         var button = removeCartItems[i]
+         button.addEventListener('click', (event) =>{
+             var buttonClicked = event.target
+             buttonClicked.parentElement.remove()
+         })
+     }
+
+}
 function saveMovie(title, year){
 
-    let items = []
-    items.push(title)
-    if (cart.length == 5 ){
-        alert("Nomination limit reached")
-    }
-    else{
-        cart.push(items)
-        alert("Movie Nominated")
-        sessionStorage.setItem("nominations", JSON.stringify(cart))
+    // let items = []
+    // items.push(title)
+    // if (cart.length == 5 ){
+    //     alert("Nomination limit reached")
+    // }
+    // else{
+    //     cart.push(items)
+    //     alert("Movie Nominated")
+    //     sessionStorage.setItem("nominations", JSON.stringify(cart))
 
-    }
+    // }
   
-    console.log(cart)
+    // console.log(cart)
 }
 
 function movieSelected(id){
