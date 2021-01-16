@@ -8,6 +8,15 @@ const cartItems = document.querySelector('.cart-items');
 const cartContent = document.querySelector('.cart-content');
 const productsDOM = document.querySelector('.products-center');
 const cart = [];
+const removeCartItems = document.getElementsByClassName('btn-danger');
+console.log(removeCartItems)
+for( var i =0; i<removeCartItems.length; i++){
+    var button = removeCartItems[i]
+    button.addEventListener('click', (event) =>{
+        var buttonClicked = event.target
+        buttonClicked.parentElement.remove()
+    })
+}
 
 $(document).ready(()=>{
     $('#searchForm').on('submit', (s) =>{
@@ -16,7 +25,9 @@ $(document).ready(()=>{
         s.preventDefault()
     })
 })
-
+function removeItem(){
+    
+}
 function showCart() {
     cartOverlay.classList.add("transparentBcg");
     cartDOM.classList.add("showCart");
@@ -154,7 +165,3 @@ class Storage{
     
 }
 
-document.addEventListtener("DOMContentLoaded", () => {
-    const ui = new UI();
-
-})
