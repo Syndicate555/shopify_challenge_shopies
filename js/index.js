@@ -66,6 +66,7 @@ function fetchMovies(searchMovie){
                     <img src = "${movie.Poster}">
                     <br></br>
                     <h5 class = "movie-title">${movie.Title}</h5>
+                    <h6 class = "movie-title">${movie.Year}</h5>
                     <div class = buttons>
                         <a onClick = "movieSelected('${movie.imdbID}')" class = "btn btn-primary btn-sm" id = "button" href = "#">Movie Details</a>
                         <a onClick = "saveMovie('${movie.Title}, ${movie.Year}')" class = "btn btn-success btn-sm" href = "#">Nominate movie</a>
