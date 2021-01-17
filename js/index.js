@@ -184,6 +184,7 @@ function nominateMovie(title){
         alert("Movie already Nominated!")
         return
     }
+    
   
     
      
