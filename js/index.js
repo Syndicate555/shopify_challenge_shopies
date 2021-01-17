@@ -151,7 +151,6 @@ function nominateMovie(title){
     }
     if (cart.length > 0 && !cart.includes(title)){
         cart.push(title)
-        alert("Movie Nominated, please press remove button twice to remove it from the nominations list")
         var cartRowContents = `
         <div class="cart-item">
             <h4 class = "movie-title">${title}</h4>
