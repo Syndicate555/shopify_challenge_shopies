@@ -20,7 +20,6 @@ $(document).ready(()=>{
 })
 
 function ready(){
-    alert("If you visit the movie details page, the cart will empty itself")
     var addToCartItems = document.getElementsByClassName('btn-success');
     // console.log(addToCartItems)
     for ( var i = 0; i<addToCartItems.length;i++){
