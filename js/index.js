@@ -125,6 +125,7 @@ function nominateMovie(title){
         alert("Already 5 movies nominated!")
         return
     }
+   
     if (cart.length == 0 ){
         cart.push(title)
         alert("Movie Nominated, please press remove button twice to remove it from the nominations list")
@@ -150,6 +151,7 @@ function nominateMovie(title){
     }
     if (cart.length > 0 && !cart.includes(title)){
         cart.push(title)
+       
         var cartRowContents = `
         <div class="cart-item">
             <h4 class = "movie-title">${title}</h4>
@@ -159,6 +161,10 @@ function nominateMovie(title){
         cartRow.innerHTML = cartRowContents
         cartItems.append(cartRow)
         console.log(cart)
+        if (cart.length === 5){
+            alert("5 nominations completed")
+            
+        }
 
         // // removing nominations from the list
         // for( var i =0; i<removeCartItems.length; i++){
@@ -172,6 +178,7 @@ function nominateMovie(title){
         // }
         return
     }
+  
     
     if (cart.includes(title)){
         alert("Movie already Nominated!")
@@ -194,6 +201,7 @@ function movieSelected(id){
 }
 
 function getMovie(){
+    alert("If you visit the Movie Details page, the cart will empty itself")
     let movieId = sessionStorage.getItem('movieId');
     axios.get(`http://www.omdbapi.com/?i=${movieId}&apikey=fb26a757`)
     .then((response) => {
